@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Monkeypox Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+
+<h1>Monkeypox Tracker Application</h1>
+<p>This application lists the current number of monkeypox cases reported across the globe</p>
+
+
+<!--<p th:text="${testName}">Welcome to our Monkeypox tracker</p>-->
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}">Total cases</h1>
+    <p class="lead">Total cases reported as of today</p>
+</div>
+<div class="alert alert-primary" role="alert">
+    <h2 class="display-4" th:text="${todaysCases}">Today's Global Cases</h2>
+    New cases of Monkeypox reported today
+</div>
+
+
+
+<div class="container">
+<table>
+    <tr>
+
+        <th>Date</th>
+        <th>Cases</th>
+        <th>Cumulutive Cases</th>
+        <th>Country</th>
+
+    </tr>
+    <tr th:each="locationStats : ${locationStats}">
+        <td th:text="${locationStats.date}"></td>
+        <td th:text="${locationStats.cases}"></td>
+        <td th:text="${locationStats.cumulativeCases}">0</td>
+        <td th:text="${locationStats.country}"></td>
+    </tr>
+</table>
+</div>
+
+</body>
+
+</html>
